@@ -1,19 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {HashRouter as Router,Route, Switch} from 'react-router-dom';
-import home from './pages/home'
+import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
 
 
 function App() {
   return (
+    <Router>
     <div className="App">
      <Home/>
        {/* <Dashboard/> */}
       
     </div>
+     </Router>
   );
 }
 

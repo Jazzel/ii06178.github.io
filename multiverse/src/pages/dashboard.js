@@ -5,9 +5,9 @@ import DashHeader from '../components/dash-header';
 import DashNav from '../components/dash-nav';
 
 
-class Dashboard extends Component{
-    loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div> 
-    render(){
+function Dashboard(){
+    // loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div> 
+
         return(
             <div>
                <DashHeader/>
@@ -18,7 +18,7 @@ class Dashboard extends Component{
            
 
         )
-    }
+    
 }
 
 export default Dashboard;
