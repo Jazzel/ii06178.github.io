@@ -37,7 +37,7 @@ class Header extends Component{
                 <a className="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i className="fab fa-tiktok"></i></a>
                 <a className="btn btn-square rounded-circle bg-light text-primary me-0" href=""><i className="fab fa-instagram"></i></a>
                {/* <BrowserRouter> */}
-               <Link to="../pages/dashboard">
+               <Link to="/dashboard">
                 <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignIn/LogIn</button>
                 </Link>
                 {/* </BrowserRouter> */}

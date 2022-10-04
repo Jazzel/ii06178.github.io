@@ -1,20 +1,32 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
-import Home from './pages/home';
-import Dashboard from './pages/dashboard';
+import {BrowserRouter,Router,Route,Routes,Navigate} from 'react-router-dom';
 
+import Homemain from './pages/home';
+import Dashboardmain from './pages/dashboard';
 
 function App() {
   return (
+    <>
     <Router>
-    <div className="App">
-     <Home/>
-       {/* <Dashboard/> */}
+   
+
+     <Homemain/>
+   
+       <Routes>
+         
+          <Route exact path='/home' element={<Homemain/>} />
+            
       
-    </div>
+          <Route path='/dashboard' component={<Dashboardmain/>} />
+            
+          <Navigate to="/home" />
+        </Routes>
+      
+ 
      </Router>
+     </>
   );
 }
 
