@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
-import {BrowserRouter,Router,Route,Link,NavLink, Switch} from 'react-router-dom';
-import{Navigate} from  'react-router-dom';
-class Header extends Component{
+import {BrowserRouter as Router,Route,Link,NavLink, Navigate} from 'react-router-dom';
+// import{Navigate} from  'react-router-dom';
+function Header(){
     
-    render(){
+ 
         return(
 
             <nav className="navbar navbar-expand-lg bg-purple navbar-light sticky-top p-0 px-4 px-lg-5">
@@ -37,7 +37,7 @@ class Header extends Component{
                 <a className="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i className="fab fa-tiktok"></i></a>
                 <a className="btn btn-square rounded-circle bg-light text-primary me-0" href=""><i className="fab fa-instagram"></i></a>
                {/* <BrowserRouter> */}
-               <Link to="/dashboard">
+               <Link to ="/dashboard">
                 <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignIn/LogIn</button>
                 </Link>
                 {/* </BrowserRouter> */}
@@ -45,7 +45,7 @@ class Header extends Component{
         </div>
     </nav>
         )
-    }
+   
 }
 
 export default Header;

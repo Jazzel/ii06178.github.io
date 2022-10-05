@@ -1,32 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter,Router,Route,Routes,Navigate} from 'react-router-dom';
-
-import Homemain from './pages/home';
-import Dashboardmain from './pages/dashboard';
+import {BrowserRouter as Router,Route,Routes,Navigate} from 'react-router-dom';
+import Header from './components/header';
+import Homemain from './pages/Home';
+import Dashboardmain from './pages/Dashboard';
+import DataForm from './components/dataform';
+import MultiverseData from './pages/MultiverserData';
 
 function App() {
   return (
-    <>
-    <Router>
-   
+    <div className="App">
+    
 
-     <Homemain/>
-   
+     {/* <Homemain/> */}
        <Routes>
          
-          <Route exact path='/home' element={<Homemain/>} />
+           <Route path='/' exact element={<Homemain/>} />
             
       
-          <Route path='/dashboard' component={<Dashboardmain/>} />
-            
-          <Navigate to="/home" />
+          <Route path='/dashboard'exact element={<Dashboardmain/>} />
+
+          <Route path='/dataform'exact element={<MultiverseData/>} />  
+           
         </Routes>
       
  
-     </Router>
-     </>
+     
+     </div>
   );
 }
 

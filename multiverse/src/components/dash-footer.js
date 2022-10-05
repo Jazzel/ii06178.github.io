@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import {BrouseRouter as Router,Route, Switch} from 'react-router-dom';
-class DashFooter extends Component{
-    render(){
+import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
+function DashFooter(){
+    
         return(
             <footer id="footer" className="footer">
     <div className="copyright">
@@ -15,7 +15,7 @@ class DashFooter extends Component{
 
 
         )
-    }
+    
 }
 
 export default DashFooter;

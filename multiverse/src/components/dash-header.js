@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import {BrouseRouter as Router,Route, Switch} from 'react-router-dom';
-class DashHeader extends Component{
-    render(){
+import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
+function DashHeader(){
+    
         return(
             <header id="header" className="header fixed-top d-flex align-items-center">
             <div className="d-flex align-items-center justify-content-between">
@@ -232,7 +232,7 @@ class DashHeader extends Component{
 
 
         )
-    }
+    
 }
 
 export default DashHeader;
