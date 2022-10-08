@@ -11,17 +11,46 @@ function DataForm(){
       
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">General Form Elements</h5>
+                    <h5 className="card-title">Multiverser Form</h5>
       
                    
                      <form>
                       <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Text</label>
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">HUID</label>
                         <div className="col-sm-10">
-                    {/*      <input type="text" className="form-control"/>
+                          <input type="text" className="form-control"/>
+                        
                         </div>
-                      </div>
+                      </div> 
                       <div className="row mb-3">
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Name</label>
+                        <div className="col-sm-10">
+                          <input type="text" className="form-control"/>
+                        
+                        </div>
+                      </div> 
+                      <div className="row mb-3">
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Batch</label>
+                        <div className="col-sm-10">
+                          <input type="text" className="form-control"/>
+                        
+                        </div>
+                      </div> 
+                      <div className="row mb-3">
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Phone Number</label>
+                        <div className="col-sm-10">
+                          <input type="text" className="form-control"/>
+                        
+                        </div>
+                      </div> 
+                      <div className="row mb-3">
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Exec_Role</label>
+                        <div className="col-sm-10">
+                          <input type="text" className="form-control"/>
+                        
+                        </div>
+                      </div> 
+                    {/*  <div className="row mb-3">
                         <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
                           <input type="email" className="form-control"/>
@@ -149,9 +178,9 @@ function DataForm(){
                         <label className="col-sm-2 col-form-label">Submit Button</label>
                         <div className="col-sm-10">
                           <button type="submit" className="btn btn-primary">Submit Form</button>*/}
-                        </div>
+                        {/* </div>
                       </div>
-      
+       */}
                     </form> 
       
                   </div>

@@ -11,7 +11,9 @@ function Dashboardmain(){
             <div>
                 <DashHeader/>
                <DashNav/>
+            <div>   
                <DashFooter/>
+               </div>   
             </div>
            
            

@@ -10,6 +10,10 @@
 --------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
+  --primary: #280a50;
+    --secondary: #f6cd2b;
+    --light: #3d1472;
+    --dark: #161616;
 }
 
 body {
