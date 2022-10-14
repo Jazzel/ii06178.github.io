@@ -2,6 +2,7 @@ import React from "react";
 import DashFooter from '../components/dash-footer';
 import DashHeader from '../components/dash-header';
 import DashNav from '../components/dash-nav';
+import StudentStats from "../components/studentstats";
 
 
 function Dashboardmain(){
@@ -11,6 +12,11 @@ function Dashboardmain(){
             <div>
                 <DashHeader/>
                <DashNav/>
+               <main id="main" class="main">
+               <section className="section dashboard">
+               <StudentStats/>
+               </section>
+               </main>
             <div>   
                <DashFooter/>
                </div>   

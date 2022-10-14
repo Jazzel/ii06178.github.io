@@ -16,26 +16,20 @@ function ExternalForm(){
                    
                     <form>
                       <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">HUID</label>
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Guest Name</label>
                         <div className="col-sm-10">
                           <input type="text" className="form-control"/>
                         
                         </div>
                       </div> 
                       <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Name</label>
+                        <label htmlFor="inputText" className="col-sm-2 col-form-label">CNIC</label>
                         <div className="col-sm-10">
                           <input type="text" className="form-control"/>
                         
                         </div>
                       </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Batch</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
+                      
                       <div className="row mb-3">
                         <label htmlFor="inputText" className="col-sm-2 col-form-label">Phone Number</label>
                         <div className="col-sm-10">
@@ -43,13 +37,13 @@ function ExternalForm(){
                         
                         </div>
                       </div> 
+
                       <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Exec_Role</label>
                         <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
+                          <button type="submit" className="btn btn-primary">Submit Form</button>
                         </div>
-                      </div> 
+                      </div>
+                     
                     {/*  <div className="row mb-3">
                         <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
@@ -187,6 +181,34 @@ function ExternalForm(){
                 </div>
       
               </div>
+              <div className="col-lg-6">
+      
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">Delete Guest</h5>
+
+         
+          <form>
+            <div className="row mb-3">
+              <label htmlFor="inputText" className="col-sm-2 col-form-label">ID</label>
+              <div className="col-sm-10">
+                <input type="text" className="form-control"/>
+              
+              </div>
+            </div> 
+            
+            <div className="row mb-3">
+              <div className="col-sm-10">
+                <button type="submit" className="btn btn-primary">Submit Form</button>
+              </div>
+            </div>
+   
+          </form> 
+
+        </div>
+      </div>
+
+    </div>
               </div>
            
           

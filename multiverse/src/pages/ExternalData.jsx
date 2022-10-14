@@ -2,9 +2,8 @@ import React from "react";
 import DashFooter from '../components/dash-footer';
 import DashHeader from '../components/dash-header';
 import DashNav from '../components/dash-nav';
-import DataForm from "../components/dataform";
-import DataTable from "../components/datatable";
 import ExternalForm from "../components/externalform";
+import ExternalTable from "../components/externaltable";
 
 
 function ExternalData(){
@@ -17,7 +16,7 @@ function ExternalData(){
                <main id="main" class="main">
                <section className="section">
                <ExternalForm/>
-               <DataTable/>
+               <ExternalTable/>
                </section>
                </main>
                <DashFooter/>

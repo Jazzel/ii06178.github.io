@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
-import {BrowserRouter as Router,Route, Switch} from 'react-router-dom';
+import {BrowserRouterm,Link,Router,Route, Switch} from 'react-router-dom';
 function DashHeader(){
     
         return(
             <header id="header" className="header fixed-top d-flex align-items-center">
             <div className="d-flex align-items-center justify-content-between">
-              <a href="index.html" className="logo d-flex align-items-center">
+              <a className="logo d-flex align-items-center">
+                <Link to="/dashboard">
                 <img className='logo' src="assets/img/transparent- chirya.png" alt=""/>
                 <span className="d-none d-lg-block">Execuverse Dashboard</span>
+                </Link>
               </a>
               <i className="bi bi-list toggle-sidebar-btn"></i>
             </div>

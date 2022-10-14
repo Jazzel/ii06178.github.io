@@ -15,6 +15,7 @@ import Register from './pages/Register';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import ForgotPassword from './pages/ForgotPassword';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
 
           <Route path='/forgot'exact element={<ForgotPassword/>} />  
            
+          <Route path='/search'exact element={<Search/>} />  
 
         </Routes>
       

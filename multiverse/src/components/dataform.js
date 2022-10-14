@@ -1,56 +1,62 @@
-import React,{Component} from 'react';
-import {BrowserRouter as Router,Route,Link,NavLink, Navigate} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, NavLink, Navigate } from 'react-router-dom';
 // import{Navigate} from  'react-router-dom';
-function DataForm(){
-    
- 
-        return(
-            
-            <div className="row">
-              <div className="col-lg-6">
-      
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Multiverser Form</h5>
-      
-                   
-                     <form>
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">HUID</label>
+function DataForm() {
+
+
+  return (
+<div className='container'>
+    <div className="row">
+      <div className="col-lg-6">
+
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">Student Form</h5>
+
+
+            <form>
+              <div className="row mb-3">
+                <label htmlFor="inputText" className="col-sm-2 col-form-label">HUID</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
+              </div>
+              <div className="row mb-3">
+                <label htmlFor="inputText" className="col-sm-2 col-form-label">Name</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
+              </div>
+              <div className="row mb-3">
+                <label htmlFor="number" className="col-sm-2 col-form-label">Batch</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
+              </div>
+              <div className="row mb-3">
+                <label htmlFor="inputText" className="col-sm-2 col-form-label">Phone Number</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
+              </div>
+              <div className="row mb-3">
+                        <label className="col-sm-2 col-form-label">Exec Role</label>
                         <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
+                          <select className="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">President</option>
+                            <option value="2">Vice President</option>
+                            <option value="3">General Secretary</option>
+                            <option value="4">Treasurer</option>
+                            <option value="5">None</option>
+                          </select>
                         </div>
-                      </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Name</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Batch</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Phone Number</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Exec_Role</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
-                    {/*  <div className="row mb-3">
+                      </div>
+              {/*  <div className="row mb-3">
                         <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
                           <input type="email" className="form-control"/>
@@ -178,20 +184,85 @@ function DataForm(){
                         <label className="col-sm-2 col-form-label">Submit Button</label>
                         <div className="col-sm-10">
                           <button type="submit" className="btn btn-primary">Submit Form</button>*/}
-                        {/* </div>
+              {/* </div>
                       </div>
        */}
-                    </form> 
-      
-                  </div>
+              <div className="row mb-3">
+                <div className="col-sm-10">
+                  <button type="submit" className="btn btn-primary">Submit Form</button>
                 </div>
-      
               </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div className="col-lg-6">
+
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">Membership Form</h5>
+
+
+            <form>
+              <div className="row mb-3">
+                <label htmlFor="inputText" className="col-sm-2 col-form-label">HUID</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
               </div>
-           
-          
-        )
-   
+              <div className="row mb-3">
+                <label htmlFor="inputText" className="col-sm-2 col-form-label">Semester</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
+              </div>
+
+              <div className="row mb-3">
+                <div className="col-sm-10">
+                  <button type="submit" className="btn btn-primary">Submit Form</button>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div className="row">
+ <div className="col-lg-6">
+ <div className="card">
+ <div className="card-body">
+ <h5 className="card-title">Delete Student</h5>
+ <form>
+              <div className="row mb-3">
+                <label htmlFor="inputText" className="col-sm-2 col-form-label">HUID</label>
+                <div className="col-sm-10">
+                  <input type="text" className="form-control" />
+
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col-sm-10">
+                  <button type="submit" className="btn btn-primary">Submit Form</button>
+                </div>
+              </div>
+              </form>
+ </div>
+   </div>
+ </div>
+</div>  
+ </div>
+
+  )
+
 }
 
 export default DataForm;

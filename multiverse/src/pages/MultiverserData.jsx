@@ -15,9 +15,12 @@ function MultiverseData(){
                <DashNav/>
                <main id="main" class="main">
                <section className="section">
+                   <div className="container">
                <DataForm/>
                <DataTable/>
+               </div>
                </section>
+
                </main>
                <DashFooter/>
             </div>

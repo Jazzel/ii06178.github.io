@@ -1,57 +1,68 @@
-import React,{Component} from 'react';
-import {BrowserRouter as Router,Route,Link,NavLink, Navigate} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, NavLink, Navigate } from 'react-router-dom';
 // import{Navigate} from  'react-router-dom';
-function EventForm(){
-    
- 
-        return(
-            
-            <div className="row">
-              <div className="col-lg-6">
-      
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Event Form</h5>
-      
-                   
-                    <form>
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Event Name</label>
+function EventForm() {
+
+
+  return (
+    <div className='containder'>
+      <div className="row">
+        <div className="col-lg-6">
+
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Event Form</h5>
+
+
+              <form>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Event Name</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Budget</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+
+                </div>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Venue</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Semester</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+                <div className="row mb-3">
+                        <label htmlFor="inputDate" className="col-sm-2 col-form-label">Date</label>
                         <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
+                          <input type="date" className="form-control"/>
                         </div>
-                      </div> 
+                      </div>
                       <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Budget</label>
+                        <label htmlFor="inputTime" className="col-sm-2 col-form-label">Time Start</label>
                         <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
+                          <input type="time" className="form-control"/>
                         </div>
-                        
-                      </div> 
+                      </div>
                       <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Venue</label>
+                        <label htmlFor="inputTime" className="col-sm-2 col-form-label">Time End</label>
                         <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
+                          <input type="time" className="form-control"/>
                         </div>
-                      </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Date Start</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
-                      <div className="row mb-3">
-                        <label htmlFor="inputText" className="col-sm-2 col-form-label">Date End</label>
-                        <div className="col-sm-10">
-                          <input type="text" className="form-control"/>
-                        
-                        </div>
-                      </div> 
-                    {/*  <div className="row mb-3">
+                      </div>
+                {/*  <div className="row mb-3">
                         <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
                           <input type="email" className="form-control"/>
@@ -175,24 +186,117 @@ function EventForm(){
                         </div>
                       </div>
       
-                      <div className="row mb-3">
-                        <label className="col-sm-2 col-form-label">Submit Button</label>
-                        <div className="col-sm-10">
-                          <button type="submit" className="btn btn-primary">Submit Form</button>*/}
-                        {/* </div>
-                      </div>
        */}
-                    </form> 
-      
+                <div className="row mb-3">
+                  <div className="col-sm-10">
+                    <button type="submit" className="btn btn-primary">Submit Form</button>
                   </div>
                 </div>
-      
-              </div>
-              </div>
-           
-          
-        )
-   
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+        <div className="col-lg-6">
+
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">VenueForm</h5>
+
+
+              <form>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Event Name</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Venue Name</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <div className="col-sm-10">
+                    <button type="submit" className="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div className='row'>
+        <div className="col-lg-6">
+
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Delete Event</h5>
+
+
+              <form>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Event ID</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <div className="col-sm-10">
+                    <button type="submit" className="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+        <div className="col-lg-6">
+
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Add Venue</h5>
+
+
+              <form>
+                <div className="row mb-3">
+                  <label htmlFor="inputText" className="col-sm-2 col-form-label">Venue Name</label>
+                  <div className="col-sm-10">
+                    <input type="text" className="form-control" />
+
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <div className="col-sm-10">
+                    <button type="submit" className="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  )
+
 }
 
 export default EventForm;
