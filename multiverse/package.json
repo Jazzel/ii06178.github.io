@@ -5,12 +5,16 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.9",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.10",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.23.5",
     "bootstrap": "^5.2.1",
+    "firebase": "^9.12.1",
+    "mdb-react-ui-kit": "^4.2.0",
+    "mdbreact": "^5.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -44,5 +48,9 @@
   },
   "devDependencies": {
     "react-router-dom": "^6.4.1"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

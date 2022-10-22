@@ -1,6 +1,7 @@
 import React from "react";
 import AttendenceForm from "../components/attendenceform";
 import AttendenceTable from "../components/attendencetable";
+import TableDemo from "../components/attendencetablemui";
 import DashFooter from '../components/dash-footer';
 import DashHeader from '../components/dash-header';
 import DashNav from '../components/dash-nav';
@@ -18,6 +19,7 @@ function AttendenceData(){
                <section className="section">
                <AttendenceForm/>
                <AttendenceTable/>
+               <TableDemo/>
                </section>
                </main>
                <DashFooter/>

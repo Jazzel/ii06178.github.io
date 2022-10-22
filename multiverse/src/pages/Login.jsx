@@ -3,6 +3,7 @@ import DashFooter from '../components/dash-footer';
 import DashHeader from '../components/dash-header';
 import DashNav from '../components/dash-nav';
 import Log from "../components/log";
+import { AuthProvider } from "../context/AuthContext";
 
 
 function Login(){
@@ -11,7 +12,9 @@ function Login(){
         return(
             <div>
                 <body class="bg-gradient-primary">
+                    <AuthProvider>
                 <Log/>
+                </AuthProvider>
                </body>
             </div>
            
