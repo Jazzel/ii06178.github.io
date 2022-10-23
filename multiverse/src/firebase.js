@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app' // no compat for new SDK
-import { getDatabase, ref } from 'firebase/database'
+import { collection, getFirestore } from 'firebase/firestore'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 const firebaseConfig = {
     apiKey: "AIzaSyDU3S3GFfZT3nVzv_3GfIus5frh9UNrdrQ",
@@ -14,7 +14,7 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig)
 
-const database = getDatabase(app)
+export const database = getFirestore(app)
 export const auth=getAuth(app)
 export const methods = {
   createUserWithEmailAndPassword,
@@ -22,4 +22,4 @@ export const methods = {
   onAuthStateChanged,
   signOut
 }
-export const todosRef = ref(database, "multiversewebsite")
+// export const todosRef = ref(database, "multiversewebsite")

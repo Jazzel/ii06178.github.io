@@ -13,7 +13,7 @@ import { addDoc, collection, getDoc, getDocs } from "firebase/firestore";
 import { database } from "../firebase";
 
 
-function TableDemo() {
+function DataTableMUI() {
 
 
   // Initial states
@@ -22,40 +22,40 @@ function TableDemo() {
   const [disable, setDisable] = React.useState(true);
   const [showConfirm, setShowConfirm] = React.useState(false);
   const [query, setQuery] = useState("");
-  const [attendence, setAttendence] = useState([]);
-  const attendenceCollectionRef = collection(database, "students_in_events")
+  const [student, setStudent] = useState([]);
+  const studentCollectionRef = collection(database, "students")
+  const studentCollectionRef = collection(database, "semesters")
   useEffect(() => {
-    getAttendence()
+    getStudent()
   }, [])
   useEffect(() => {
-    console.log(attendence)
-  }, [attendence])
-  const getAttendence = async () => {
+    console.log(student)
+  }, [student])
+  const getStudent = async () => {
 
-    const attends = await getDocs(attendenceCollectionRef);
+    const stdts = await getDocs(studentCollectionRef);
 
-    attends.forEach(async (attend) => {
-      console.log(attend.data());
-
-      const student = await getDoc(attend.data().Student);
-      const role = await getDoc(attend.data().Role);
-      console.log(student.data())
+    stdts.forEach(async (stdt) => {
+      console.log(stdt.data()); 
       setRows([
         ...rows,
         {
           
-
-          name: student.data().FullName,
-
-          role: role.data().Name,
-          check: attend.data().Attendance,
-          ticket: attend.data().TicketBought,
+          id: stdt.data().HUID,
+          name: stdt.data().FullName,
+          batch:stdt.data().Batch,
+          exec:stdt.data().ExecutivePosition,
+          password: stdt.data().Password,
+          phone: stdt.data().PhoneNumber,
 
         },
       ]);
     });
   }
   const [rows, setRows] = useState(
+    [ ]
+  );
+  const [rows2, setRows2] = useState(
     [ ]
   );
 
@@ -72,8 +72,8 @@ function TableDemo() {
     setRows([
       ...rows,
       {
-        check: false,
-        name: "", role: "", ticket: ""
+        id:"",
+        name: "", batch: "", exec: "", password:"", phone:""
       },
     ]);
     setEdit(true);
@@ -98,17 +98,19 @@ function TableDemo() {
   const makeTableHeader = () => {
     return (
       <TableHead>
-        <Button onClick={() => getAttendence()}>Refresh</Button>
+        <Button onClick={() => getStudent()}>Refresh</Button>
         <input
           className="search"
           placeholder="Search..."
           onChange={(e) => setQuery(e.target.value.toLowerCase())}
         />
         <TableRow>
-          <TableCell>Check</TableCell>
+          <TableCell>ID</TableCell>
           <TableCell>Name</TableCell>
-          <TableCell>Role</TableCell>
-          <TableCell>Ticket</TableCell>
+          <TableCell>Batch</TableCell>
+          <TableCell>Executive Postion</TableCell>
+          <TableCell>Password</TableCell>
+          <TableCell>Phone Number</TableCell>
           <TableCell align="center"></TableCell>
         </TableRow>
 
@@ -120,9 +122,9 @@ function TableDemo() {
     return (
       <>
         <TableCell padding="none">
-          <input type="checkbox"
-            checked={row.check}
-            name="check"
+          <input
+            checked={row.id}
+            name="id"
             onChange={(e) => handleInputChange(e, i)}
           />
         </TableCell>
@@ -134,25 +136,46 @@ function TableDemo() {
           />
         </TableCell>
         <TableCell padding="none">
-          <input
-            value={row.role}
-            name="role"
+          <select
+            style={{ width: "100px" }}
+            name="batch"
+            value={row.batch}
             onChange={(e) => handleInputChange(e, i)}
-          />
+          >
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+
+          </select>
         </TableCell>
         <TableCell padding="none">
           <select
             style={{ width: "100px" }}
-            name="ticket"
-            value={row.ticket}
+            name="exec"
+            value={row.exec}
             onChange={(e) => handleInputChange(e, i)}
           >
-            <option value=""></option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
+            <option value="None"></option>
+            <option value="President">President</option>
+            <option value="Vice President">vice President</option>
 
           </select>
         </TableCell>
+        <TableCell padding="none">
+          <input
+            value={row.password}
+            name="password"
+            onChange={(e) => handleInputChange(e, i)}
+          />
+        </TableCell>
+        <TableCell padding="none">
+          <input
+            value={row.phone}
+            name="phone"
+            onChange={(e) => handleInputChange(e, i)}
+          />
+           </TableCell>
+        
       </>
     )
   }
@@ -160,23 +183,23 @@ function TableDemo() {
     console.log(row)
     return (
       <>
-        <TableCell component="td" scope="row">
-          <input type="checkbox"
-            checked={row.check}
-          />
-
+      <TableCell component="td" scope="row">
+          {row.id}
         </TableCell>
         <TableCell component="td" scope="row">
           {row.name}
         </TableCell>
         <TableCell component="td" scope="row" align="center">
-          {row.role}
+          {row.batch}
         </TableCell>
-        <TableCell
-          component="td"
-          scope="row"
-          align="center"
-        >{row.ticket}</TableCell>
+        <TableCell component="td" scope="row" align="center">
+          {row.exec}
+        </TableCell>
+        <TableCell component="td" scope="row">
+          {row.password}
+        </TableCell>
+        <TableCell component="td" scope="row"> 
+        {row.phone}</TableCell>
       </>
     )
   }
@@ -273,8 +296,8 @@ function TableDemo() {
         >
           {makeTableHeader()}
           <TableBody>
-            {rows.filter(row => row.name.toLowerCase().includes(query) || row.role.toLowerCase().includes(query)).map((row, i) => {
-              // {rows.map((row, i) => {
+            {rows.filter(row => row.id.toLowerCase().includes(query) || row.name.toLowerCase().includes(query)|| row.batch.toLowerCase().includes(query) || row.exec.toLowerCase().includes(query) || row.phone.toLowerCase().includes(query)).map((row, i) => {
+             
               return (
                 <TableRow>
                   {isEdit ? makeEditRow(row, i) : makeViewRow(row)}
@@ -327,4 +350,4 @@ function TableDemo() {
   );
 }
 
-export default TableDemo;
+export default DataTableMUI;

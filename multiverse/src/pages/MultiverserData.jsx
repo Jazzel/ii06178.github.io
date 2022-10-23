@@ -4,6 +4,7 @@ import DashHeader from '../components/dash-header';
 import DashNav from '../components/dash-nav';
 import DataForm from "../components/dataform";
 import DataTable from "../components/datatable";
+import DataTableMUI from "../components/datatablemui";
 
 
 function MultiverseData(){
@@ -18,6 +19,7 @@ function MultiverseData(){
                    <div className="container">
                <DataForm/>
                <DataTable/>
+               <DataTableMUI/>
                </div>
                </section>
 

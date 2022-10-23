@@ -17,8 +17,8 @@ function AttendenceData(){
                <DashNav/>
                <main id="main" class="main">
                <section className="section">
-               <AttendenceForm/>
-               <AttendenceTable/>
+               {/* <AttendenceForm/>
+               <AttendenceTable/> */}
                <TableDemo/>
                </section>
                </main>
