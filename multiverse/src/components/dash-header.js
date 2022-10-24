@@ -5,20 +5,21 @@ import { UseAuth } from '../context/AuthContext';
 function DashHeader(){
   const [error,setError]=useState()
   const navigate = useNavigate()
-  // const {currentUser,signout,login}=UseAuth()
-  // console.log(currentUser)
-// async function handleSignOut()
-// {
-//   setError("")
+  const {currentUser,signout}=UseAuth()
+  console.log(currentUser)
+async function handleSignOut()
+{
+  setError("")
 
-//   try {
-//       await signout()
-//       navigate("/login")
-//   } catch (e) {
-//       console.error(e)
-//       setError("Failed to log out")
-//   }
-// }    
+  try {
+      await signout()
+      console.log("going")
+      navigate("/login")
+  } catch (e) {
+      console.error(e)
+      setError("Failed to log out")
+  }
+}    
         return(
             <header id="header" className="header fixed-top d-flex align-items-center">
             <div className="d-flex align-items-center justify-content-between">
@@ -40,7 +41,7 @@ function DashHeader(){
         
                   <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src="assets/img/profile-img.jpg" alt="Profile" className="rounded-circle"/>
-                    <span className="d-none d-md-block dropdown-toggle ps-2"> </span>
+                    <span className="d-none d-md-block dropdown-toggle ps-2"> {currentUser && currentUser.email} </span>
                   </a>
         
                   <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -54,7 +55,7 @@ function DashHeader(){
         
         
                     <li>
-                      <a className="dropdown-item d-flex align-items-center" href="#">
+                      <a className="dropdown-item d-flex align-items-center" href="#" onClick={handleSignOut}>
                         <i className="bi bi-box-arrow-right"></i>
                         <span>Sign Out</span>
                       </a>

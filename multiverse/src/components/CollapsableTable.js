@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import TableEdit from "./tableedit";
 
 
-function CollapsableTable({tableName, fields , open,id,rows,t, handleAdd, handleSave, toggleEdit, refresh,setQuery, isEdit,disable}) {
+function CollapsableTable({tableName, fields , open,id,rows,t, handleAdd, handleSave, toggleEdit, refresh,setQuery, isEdit,disable,getFilteredRows}) {
   console.log("id",id)
   const rowValues2 = (row,table) => {
      switch(table){
@@ -25,7 +25,9 @@ function CollapsableTable({tableName, fields , open,id,rows,t, handleAdd, handle
                   {tableName}
               </Typography>
               <TableEdit handleAdd={handleAdd} handleSave={handleSave} toggleEdit={toggleEdit} refresh={refresh} setQuery={setQuery} isEdit={isEdit} rows={rows} disable={disable}/>
-              <Table size="small" aria-label="purchases">
+              <Table className="table table-striped table-hover table-responsive"
+          size="small"
+          aria-label="a dense table">
                 <TableHead>
                 <TableRow>
                 {

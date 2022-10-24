@@ -25,7 +25,8 @@ function DataTableMUI() {
 
   // Initial states
   const [open, setOpen] = React.useState(false);
-  const [isEdit, setEdit] = React.useState(false);
+  const [isEdit1, setEdit1] = React.useState(false);
+  const [isEdit2, setEdit2] = React.useState(false);
   const [disable, setDisable] = React.useState(true);
   const [showConfirm, setShowConfirm] = React.useState(false);
   const [query, setQuery] = useState("");
@@ -33,7 +34,7 @@ function DataTableMUI() {
   const studentCollectionRef = collection(database, "students")
   const studentsemesterCollectionRef = collection(database, "students_in_semesters")
   const [collapsableTableOpen, setCollapsableTableOpen] = useState(false);
-  const fieldsOfTable = ["","ID", "Name", "Batch", "Executive Position", "Password", "Phone Number"];
+  const fieldsOfTable = ["","ID", "Name", "Batch", "Executive Position", "Password", "Phone Number", "Bank Name","IBAN"];
   const fieldsOfTable2 = ["Season", "Year"];
   const table=1;
   const tablename="Membership";
@@ -59,7 +60,8 @@ function DataTableMUI() {
           exec: stdt.data().ExecutivePosition,
           password: stdt.data().Password,
           phone: stdt.data().PhoneNumber,
-
+          bank: stdt.data().BankName,
+          iban:stdt.data().IBAN,
         },
       ]);
      
@@ -96,18 +98,8 @@ function DataTableMUI() {
   };
 
   // Function For adding new row object
-  const handleAdd = (r) => {
-    if(r==1){
-      setRows([
-        ...rows,
-        {
-          id: "",
-          name: "", batch: "", exec: "", password: "", phone: ""
-        },
-      ]);
+  const handleAdd2 = () => {
     
-    }
-    else if(r==2){
       setRows2([
         ...rows2,
         {
@@ -115,37 +107,61 @@ function DataTableMUI() {
           year: ""
         },
       ]);
-    }
-    setEdit(true);
+    
+    setEdit2(true);
+  };
+
+  const handleAdd1 = () => {
+    
+      setRows([
+        ...rows,
+        {
+          id: "",
+          name: "", batch: "", exec: "", password: "", phone: "", bank:"", iban:""
+        },
+      ]);
+    
+    
+    
+    setEdit1(true);
   };
 
   // Function to handle edit
-  const toggleEdit = (i) => setEdit(!isEdit);
+  const toggleEdit1 = (i) => setEdit1(!isEdit1);
+
+  const toggleEdit2 = (i) => setEdit2(!isEdit2);
 
   // Function to handle save
-  const handleSave = () => {
-    setEdit(!isEdit);
+  const handleSave1 = () => {
+    setEdit1(!isEdit1);
     setRows(rows);
     console.log("saved : ", rows);
     setDisable(true);
     setOpen(true);
   };
+  const handleSave2 = () => {
+    setEdit2(!isEdit2);
+    setRows2(rows2);
+    console.log("saved : ", rows2);
+    setDisable(true);
+    setOpen(true);
+  };
 
-  const makeEditRow = (row, i) => {
+  const makeEditRow1 = (row, i) => {
     return (
       <>
         <TableCell padding="none">
           <input
-            checked={row.id}
+            value={row.id}
             name="id"
-            onChange={(e) => handleInputChange(e, i)}
+            onChange={(e) => handleInputChange1(e, i)}
           />
         </TableCell>
         <TableCell padding="none">
           <input
             value={row.name}
             name="name"
-            onChange={(e) => handleInputChange(e, i)}
+            onChange={(e) => handleInputChange1(e, i)}
           />
         </TableCell>
         <TableCell padding="none">
@@ -153,7 +169,7 @@ function DataTableMUI() {
             style={{ width: "100px" }}
             name="batch"
             value={row.batch}
-            onChange={(e) => handleInputChange(e, i)}
+            onChange={(e) => handleInputChange1(e, i)}
           >
             <option value="2022">2022</option>
             <option value="2023">2023</option>
@@ -166,7 +182,7 @@ function DataTableMUI() {
             style={{ width: "100px" }}
             name="exec"
             value={row.exec}
-            onChange={(e) => handleInputChange(e, i)}
+            onChange={(e) => handleInputChange1(e, i)}
           >
             <option value="None"></option>
             <option value="President">President</option>
@@ -178,34 +194,89 @@ function DataTableMUI() {
           <input
             value={row.password}
             name="password"
-            onChange={(e) => handleInputChange(e, i)}
+            onChange={(e) => handleInputChange1(e, i)}
           />
         </TableCell>
         <TableCell padding="none">
           <input
             value={row.phone}
             name="phone"
-            onChange={(e) => handleInputChange(e, i)}
+            onChange={(e) => handleInputChange1(e, i)}
+          />
+        </TableCell>
+        <TableCell padding="none">
+          <input
+            value={row.bank}
+            name="bank"
+            onChange={(e) => handleInputChange1(e, i)}
+          />
+        </TableCell>
+        <TableCell padding="none">
+          <input
+            value={row.iban}
+            name="iban"
+            onChange={(e) => handleInputChange1(e, i)}
           />
         </TableCell>
 
       </>
     )
   }
+  const makeEditRow2 = (row, i) => {
+    return (
+      <>
+       <TableCell padding="none">
+          <select
+            style={{ width: "100px" }}
+            name="season"
+            value={row.exec}
+            onChange={(e) => handleInputChange2(e, i)}
+          >
+            <option value="Fall">Fall</option>
+            <option value="Spring">Spring</option>
+
+          </select>
+        </TableCell>
+        <TableCell padding="none">
+          <select
+            style={{ width: "100px" }}
+            name="year"
+            value={row.year}
+            onChange={(e) => handleInputChange2(e, i)}
+          >
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+
+          </select>
+        </TableCell>
+        
+
+      </>
+    )
+  }
   const rowValues = (row) => {
-    return [row.id, row.name, row.batch, row.exec, row.password, row.phone]
+    return [row.id, row.name, row.batch, row.exec, row.password, row.phone,row.bank,row.iban]
   }
   
 
   // The handleInputChange handler can be set up to handle
   // many different inputs in the form, listen for changes
   // to input elements and record their values in state
-  const handleInputChange = (e, index) => {
+  const handleInputChange1 = (e, index) => {
     setDisable(false);
     const { name, value } = e.target;
     const list = [...rows];
     list[index][name] = value;
     setRows(list);
+  };
+
+  const handleInputChange2 = (e, index) => {
+    setDisable(false);
+    const { name, value } = e.target;
+    const list = [...rows2];
+    list[index][name] = value;
+    setRows2(list);
   };
 
   // Showing delete confirmation to users
@@ -227,8 +298,11 @@ function DataTableMUI() {
 
   const DialogActions = {showConfirm, handleNo, handleRemoveClick};
 
-  const getFilteredRows = () => {
+  const getFilteredRows1 = () => {
     return rows.filter(row => row.id.toLowerCase().includes(query) || row.name.toLowerCase().includes(query) || row.batch.toLowerCase().includes(query) || row.exec.toLowerCase().includes(query) || row.phone.toLowerCase().includes(query));
+  }
+  const getFilteredRows2 = () => {
+    return rows2.filter(row => row.season.toLowerCase().includes(query) || row.year.toLowerCase().includes(query) );
   }
   return (
     <>
@@ -244,7 +318,7 @@ function DataTableMUI() {
       </Snackbar>
       <Box margin={1}>
 
-<TableEdit handleAdd={handleAdd} add={1} handleSave={handleSave} toggleEdit={toggleEdit} refresh={getStudent} setQuery={setQuery} isEdit={isEdit} rows={rows} disable={disable}/>
+<TableEdit handleAdd={handleAdd1}  handleSave={handleSave1} toggleEdit={toggleEdit1} refresh={getStudent} setQuery={setQuery} isEdit={isEdit1} rows={rows} disable={disable}/>
 
         <Table
           className="table table-striped table-hover table-responsive"
@@ -255,12 +329,12 @@ function DataTableMUI() {
           <TableHeader fields={fieldsOfTable} />
 
           <TableBody>
-            {getFilteredRows().map((row, i) => {
-              if (isEdit) {
+            {getFilteredRows1().map((row, i) => {
+              if (isEdit1) {
                 return (
                   <>                
                   <TableRow>
-                  {makeEditRow(row, i)}
+                  {makeEditRow1(row, i)}
                   </TableRow>
                   </>
                 )
@@ -268,17 +342,17 @@ function DataTableMUI() {
               return (
                 <>
                 <TableRow>
-                  {isEdit ? makeEditRow(row, i) : <ViewRow columns={rowValues(row)} open={collapsableTableOpen} setOpen={setCollapsableTableOpen}  />}
+                  {isEdit1 ? makeEditRow1(row, i) : <ViewRow columns={rowValues(row)} open={collapsableTableOpen} setOpen={setCollapsableTableOpen}  />}
                   <Button className="mr10" onClick={handleConfirm} >
-                    {isEdit ? <ClearIcon /> : <DeleteOutlineIcon />}
+                    {isEdit1 ? <ClearIcon /> : <DeleteOutlineIcon />}
                   </Button>
                   {showConfirm && <TableDialog DialogFunctions={DialogActions} i={i}/>}
                 </TableRow>
                 
-                {!isEdit && <CollapsableTable tableName={tablename}  fields={fieldsOfTable2} 
+                {!isEdit1 && <CollapsableTable tableName={tablename}  fields={fieldsOfTable2} 
                 open={collapsableTableOpen} id={row.name} rows={rows2} t={table}
-                handleAdd={handleAdd} add={2} handleSave={handleSave} toggleEdit={toggleEdit} refresh={getStudent} 
-                setQuery={setQuery} isEdit={isEdit} disable={disable}/>}
+                handleAdd={handleAdd2}  handleSave={handleSave2} toggleEdit={toggleEdit2} refresh={getStudent} 
+                setQuery={setQuery} isEdit={isEdit2} disable={disable} getFilteredRows={getFilteredRows2}/>}
                 </>
               );
             })}

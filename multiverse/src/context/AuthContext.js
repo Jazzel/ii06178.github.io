@@ -18,10 +18,14 @@ export function AuthProvider({ children }) {
     }
 
     function login(email, password) {
-        return methods.signInWithEmailAndPassword(auth, email, password)
+        return methods.signInWithEmailAndPassword(auth, email, password).then((response) => {
+            sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+          })
+
     }
 
-    function logout() {
+    function signout() {
+        sessionStorage.removeItem('Auth Token');
         return methods.signOut(auth)
     }
 
@@ -38,7 +42,7 @@ export function AuthProvider({ children }) {
         currentUser,
         signup,
         login,
-        logout
+        signout
     }
 
     return (

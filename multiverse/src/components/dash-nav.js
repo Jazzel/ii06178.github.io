@@ -47,6 +47,34 @@ function DashNav(){
         </Link>
         </a>
       </li>
+      <li className="nav-item">
+      <a className="nav-link">
+      <Link to="/role">
+          <i className="bi bi-menu-button-wide"></i><span>Role</span>
+        </Link>
+        </a>
+      </li>
+      <li className="nav-item">
+      <a className="nav-link">
+      <Link to="/schedule">
+          <i className="bi bi-menu-button-wide"></i><span>Schedule</span>
+        </Link>
+        </a>
+      </li>
+      <li className="nav-item">
+      <a className="nav-link">
+      <Link to="/semester">
+          <i className="bi bi-menu-button-wide"></i><span>Semester</span>
+        </Link>
+        </a>
+      </li>
+      <li className="nav-item">
+      <a className="nav-link">
+      <Link to="/venue">
+          <i className="bi bi-menu-button-wide"></i><span>Venue</span>
+        </Link>
+        </a>
+      </li>
       {/* <li className="nav-item">
       <a className="nav-link">
       <Link to="/search">

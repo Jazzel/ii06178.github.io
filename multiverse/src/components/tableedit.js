@@ -24,8 +24,8 @@ function TableEdit({handleAdd, add, handleSave,toggleEdit,refresh,setQuery,isEdi
           <div>
             {isEdit ? (
               <div>
-                <Button onClick={handleAdd(add)}>
-                  <AddBoxIcon onClick={handleAdd(add)} />
+                <Button onClick={handleAdd}>
+                  <AddBoxIcon onClick={handleAdd} />
                   ADD
                 </Button>
                 {rows.length !== 0 && (
@@ -46,8 +46,8 @@ function TableEdit({handleAdd, add, handleSave,toggleEdit,refresh,setQuery,isEdi
               </div>
             ) : (
               <div>
-                <Button onClick={handleAdd(add)}>
-                  <AddBoxIcon onClick={handleAdd(add)} />
+                <Button onClick={handleAdd}>
+                  <AddBoxIcon onClick={handleAdd} />
                   ADD
                 </Button>
                 <Button align="right" onClick={toggleEdit}>
