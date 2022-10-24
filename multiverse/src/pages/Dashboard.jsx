@@ -9,17 +9,17 @@ import StudentStats from "../components/studentstats";
 function Dashboardmain(){
     // loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div> 
     let navigate = useNavigate();
-    useEffect(() => {
-        let authToken = sessionStorage.getItem('Auth Token')
-        console.log(authToken)
-        if (authToken) {
-            navigate('/home')
-        }
+    // useEffect(() => {
+    //     let authToken = sessionStorage.getItem('Auth Token')
+    //     console.log(authToken)
+    //     if (authToken) {
+    //         navigate('/dashboard')
+    //     }
 
-        if (!authToken) {
-            navigate('/register')
-        }
-    }, [])
+    //     if (!authToken) {
+    //         navigate('/login')
+    //     }
+    // }, [])
         return(
             <div>
                 <DashHeader/>
