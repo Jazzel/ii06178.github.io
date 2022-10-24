@@ -1,30 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { TableCell } from "@mui/material";
+// import React, { useEffect, useState } from "react";
+import * as React from 'react';
+import { TableCell, TableRow } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-function ViewRow({columns }) {
+function ViewRow({columns,open,setOpen }) {
     return (
         <>
+        <React.Fragment>
+      {/* <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}> */}
+        <TableCell>
         <IconButton
+        
             aria-label="expand row"
             size="small"
-            onClick={() => {}}
+            onClick={() =>  setOpen(!open)}
           >
-          {true ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
 
           </IconButton>
             
+            </TableCell>
             {
                 columns.map((value, index) => {
                     return (
-                        <TableCell component="td" scope="row">
+                        <TableCell>
                             {value}
                         </TableCell>)
                         
                 })
             }
+            {/* </TableCell> */}
+      {/* </TableRow> */}
+    </React.Fragment>
         </>
     )
 }

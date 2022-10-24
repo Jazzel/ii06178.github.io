@@ -17,8 +17,8 @@ function MultiverseData(){
                <main id="main" class="main">
                <section className="section">
                    <div className="container">
-               <DataForm/>
-               <DataTable/>
+               {/* <DataForm/>
+               <DataTable/> */}
                <DataTableMUI/>
                </div>
                </section>

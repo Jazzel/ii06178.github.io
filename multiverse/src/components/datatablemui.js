@@ -16,6 +16,7 @@ import TableHeader from "./TableHeader";
 import ViewRow from "./ViewRow";
 import TableDialog from "./TableDialog";
 import CollapsableTable from "./CollapsableTable";
+import TableEdit from "./tableedit";
 
 
 
@@ -30,9 +31,12 @@ function DataTableMUI() {
   const [query, setQuery] = useState("");
   const [student, setStudent] = useState([]);
   const studentCollectionRef = collection(database, "students")
-  const semesterCollectionRef = collection(database, "semesters")
+  const studentsemesterCollectionRef = collection(database, "students_in_semesters")
   const [collapsableTableOpen, setCollapsableTableOpen] = useState(false);
-  const fieldsOfTable = ["ID", "Name", "Batch", "Executive Position", "Password", "Phone Number"];
+  const fieldsOfTable = ["","ID", "Name", "Batch", "Executive Position", "Password", "Phone Number"];
+  const fieldsOfTable2 = ["Season", "Year"];
+  const table=1;
+  const tablename="Membership";
   useEffect(() => {
     getStudent()
   }, [])
@@ -42,7 +46,7 @@ function DataTableMUI() {
   const getStudent = async () => {
 
     const stdts = await getDocs(studentCollectionRef);
-
+    const semstdts=await getDocs(studentsemesterCollectionRef)
     stdts.forEach(async (stdt) => {
       console.log(stdt.data());
       setRows([
@@ -58,6 +62,22 @@ function DataTableMUI() {
 
         },
       ]);
+     
+    });
+    semstdts.forEach(async (ss) => {
+     
+      const stud = await getDoc(ss.data().Student);
+      const sem = await getDoc(ss.data().Semester);
+      setRows2([
+        ...rows2,
+        {
+          name:stud.data().FullName,
+          season:sem.data().Season,
+          year: sem.data().Year
+
+        },
+      ]);
+     
     });
   }
   const [rows, setRows] = useState(
@@ -66,7 +86,7 @@ function DataTableMUI() {
   const [rows2, setRows2] = useState(
     []
   );
-
+   
   // Function For closing the alert snackbar
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -76,14 +96,26 @@ function DataTableMUI() {
   };
 
   // Function For adding new row object
-  const handleAdd = () => {
-    setRows([
-      ...rows,
-      {
-        id: "",
-        name: "", batch: "", exec: "", password: "", phone: ""
-      },
-    ]);
+  const handleAdd = (r) => {
+    if(r==1){
+      setRows([
+        ...rows,
+        {
+          id: "",
+          name: "", batch: "", exec: "", password: "", phone: ""
+        },
+      ]);
+    
+    }
+    else if(r==2){
+      setRows2([
+        ...rows2,
+        {
+          season: "",
+          year: ""
+        },
+      ]);
+    }
     setEdit(true);
   };
 
@@ -163,6 +195,8 @@ function DataTableMUI() {
   const rowValues = (row) => {
     return [row.id, row.name, row.batch, row.exec, row.password, row.phone]
   }
+  
+
   // The handleInputChange handler can be set up to handle
   // many different inputs in the form, listen for changes
   // to input elements and record their values in state
@@ -209,52 +243,8 @@ function DataTableMUI() {
         </Alert>
       </Snackbar>
       <Box margin={1}>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            {isEdit ? (
-              <div>
-                <Button onClick={handleAdd}>
-                  <AddBoxIcon onClick={handleAdd} />
-                  ADD
-                </Button>
-                {rows.length !== 0 && (
-                  <div>
-                    {disable ? (
-                      <Button disabled align="right" onClick={handleSave}>
-                        <DoneIcon />
-                        SAVE
-                      </Button>
-                    ) : (
-                      <Button align="right" onClick={handleSave}>
-                        <DoneIcon />
-                        SAVE
-                      </Button>
-                    )}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div>
-                <Button onClick={handleAdd}>
-                  <AddBoxIcon onClick={handleAdd} />
-                  ADD
-                </Button>
-                <Button align="right" onClick={toggleEdit}>
-                  <CreateIcon />
-                  EDIT
-                </Button>
-              </div>
-            )}
-          </div>
-          <Button onClick={() => getStudent()}>Refresh</Button>
-          <input
-            className="search"
-            placeholder="Search..."
-            onChange={(e) => setQuery(e.target.value.toLowerCase())}
-          />
-        </div>
 
-
+<TableEdit handleAdd={handleAdd} add={1} handleSave={handleSave} toggleEdit={toggleEdit} refresh={getStudent} setQuery={setQuery} isEdit={isEdit} rows={rows} disable={disable}/>
 
         <Table
           className="table table-striped table-hover table-responsive"
@@ -268,7 +258,7 @@ function DataTableMUI() {
             {getFilteredRows().map((row, i) => {
               if (isEdit) {
                 return (
-                  <>
+                  <>                
                   <TableRow>
                   {makeEditRow(row, i)}
                   </TableRow>
@@ -278,13 +268,17 @@ function DataTableMUI() {
               return (
                 <>
                 <TableRow>
-                  {isEdit ? makeEditRow(row, i) : <ViewRow columns={rowValues(row)} />}
+                  {isEdit ? makeEditRow(row, i) : <ViewRow columns={rowValues(row)} open={collapsableTableOpen} setOpen={setCollapsableTableOpen}  />}
                   <Button className="mr10" onClick={handleConfirm} >
                     {isEdit ? <ClearIcon /> : <DeleteOutlineIcon />}
                   </Button>
                   {showConfirm && <TableDialog DialogFunctions={DialogActions} i={i}/>}
                 </TableRow>
-                {!isEdit && <CollapsableTable/>}
+                
+                {!isEdit && <CollapsableTable tableName={tablename}  fields={fieldsOfTable2} 
+                open={collapsableTableOpen} id={row.name} rows={rows2} t={table}
+                handleAdd={handleAdd} add={2} handleSave={handleSave} toggleEdit={toggleEdit} refresh={getStudent} 
+                setQuery={setQuery} isEdit={isEdit} disable={disable}/>}
                 </>
               );
             })}
