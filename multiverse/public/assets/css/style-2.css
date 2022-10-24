@@ -380,13 +380,14 @@ h6 {
 
 @media (min-width: 1200px) {
   .logo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
 }
 
 .logo img {
-  max-height: 26px;
+  max-height: 50px;
+  max-width: 50px;
   margin-right: 6px;
 }
 

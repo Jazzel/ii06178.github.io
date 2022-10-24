@@ -16,6 +16,7 @@ import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import ForgotPassword from './pages/ForgotPassword';
 import Search from './pages/Search';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -24,10 +25,10 @@ function App() {
 
      {/* <Homemain/> */}
        <Routes>
-         
+       <Route element={<ProtectedRoute />}>
            <Route path='/' exact element={<Homemain/>} />
-            
-      
+           </Route> 
+
           <Route path='/dashboard'exact element={<Dashboardmain/>} />
 
           <Route path='/dataform'exact element={<MultiverseData/>} />  

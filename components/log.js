@@ -10,11 +10,11 @@ function Log() {
     const [loading,setLoading]=useState(false)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if(currentUser) {
-            navigate('/dashboard')
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(currentUser) {
+    //         navigate('/dashboard')
+    //     }
+    // }, [])
    
     async function HandleSubmit(e) {
         e.preventDefault();
