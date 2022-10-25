@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app' // no compat for new SDK
 import { collection, getFirestore } from 'firebase/firestore'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from 'firebase/auth'
 const firebaseConfig = {
     apiKey: "AIzaSyDU3S3GFfZT3nVzv_3GfIus5frh9UNrdrQ",
     authDomain: "multiversewebsite-d1ba0.firebaseapp.com",
@@ -20,7 +20,8 @@ export const methods = {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  signOut,
+  sendPasswordResetEmail
 }
 // export const todosRef = ref(database, "multiversewebsite")
 export default app

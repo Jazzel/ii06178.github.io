@@ -1,9 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component,useState,useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink, Navigate } from 'react-router-dom';
+import { addDoc, collection, getDoc, getDocs } from "firebase/firestore";
+import { database } from "../firebase";
 // import{Navigate} from  'react-router-dom';
 function StudentStats() {
 
-
+  const studentsCollectionRef = collection(database, "students_in_semesters");
+  const semCollectionRef = collection(database, "semesters");
+  
+  const [number,setNumber]=useState(null);
+  useEffect(() => {
+    getData()
+  }, [])
+  useEffect(() => {
+    
+  }, [number])
+  const getData = async () => {
+    // const id= semCollectionRef.where("Year","==","2018");
+    // const query=studentsCollectionRef.where('Semester','array-contains',"");
+  //   console.log("id of sem",id);
+  //   const numOfStudents = await query.count().get();
+  //  setNumber(numOfStudents.data().count);
+  }
     return (
         <div className="row">
 
@@ -69,7 +87,7 @@ function StudentStats() {
                     </div>
                     <div className="ps-3">
                       <h6>$3,264</h6>
-                      <span className="text-success small pt-1 fw-bold">8%</span> <span className="text-muted small pt-2 ps-1">increase</span>
+                     
 
                     </div>
                   </div>
@@ -102,8 +120,8 @@ function StudentStats() {
                       <i className="bi bi-people"></i>
                     </div>
                     <div className="ps-3">
-                      <h6>1244</h6>
-                      <span className="text-danger small pt-1 fw-bold">12%</span> <span className="text-muted small pt-2 ps-1">decrease</span>
+                      <h6>{number}</h6>
+                     
 
                     </div>
                   </div>
@@ -128,13 +146,13 @@ function StudentStats() {
                   </ul>
                 </div>
 
-                <div className="card-body">
+                {/* <div className="card-body">
                   <h5 className="card-title">Reports <span>/Today</span></h5>
 
                   
-                  {/* <div id="reportsChart"></div> */}
+                   <div id="reportsChart"></div> 
 
-                  {/* <script>
+                   <script>
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
@@ -185,14 +203,14 @@ function StudentStats() {
                         }
                       }).render();
                     });
-                  </script> */}
+                  </script> 
                 
 
-                </div>
+                </div> */}
 
               </div>
             </div>
-            <div className="col-12">
+            {/* <div className="col-12">
               <div className="card recent-sales overflow-auto">
 
                 <div className="filter">
@@ -206,9 +224,9 @@ function StudentStats() {
                     <li><a className="dropdown-item" href="#">This Month</a></li>
                     <li><a className="dropdown-item" href="#">This Year</a></li>
                   </ul>
-                </div>
+                </div> */}
 
-                <div className="card-body">
+                {/* <div className="card-body">
                   <h5 className="card-title">Recent Members <span>| Today</span></h5>
 
                   <table className="table table-borderless datatable">
@@ -260,11 +278,11 @@ function StudentStats() {
                     </tbody>
                   </table>
 
-                </div>
+                </div> */}
 
-              </div>
-            </div>
-            <div className="col-12">
+              {/* </div>
+            </div> */}
+            {/* <div className="col-12">
               <div className="card top-selling overflow-auto">
 
                 <div className="filter">
@@ -335,7 +353,7 @@ function StudentStats() {
                 </div>
 
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
@@ -358,7 +376,7 @@ function StudentStats() {
               </ul>
             </div>
 
-            <div className="card-body">
+            {/* <div className="card-body">
               <h5 className="card-title">Recent Activity <span>| Today</span></h5>
 
               <div className="activity">
@@ -413,7 +431,7 @@ function StudentStats() {
 
               </div>
 
-            </div>
+            </div> */}
           </div>
           <div className="card">
             <div className="filter">
@@ -429,12 +447,12 @@ function StudentStats() {
               </ul>
             </div>
 
-            <div className="card-body pb-0">
+            {/* <div className="card-body pb-0">
               <h5 className="card-title">Budget Report <span>| This Month</span></h5>
 
-              {/* <div id="budgetChart" style="min-height: 400px;" className="echart"></div> */}
+               <div id="budgetChart" style="min-height: 400px;" className="echart"></div> 
 
-              {/* <script>
+               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
                     legend: {
@@ -483,10 +501,10 @@ function StudentStats() {
                     }]
                   });
                 });
-              </script> */}
+              </script> 
 
-            </div>
-          </div>
+            </div>*/}
+          </div> 
           <div className="card">
             <div className="filter">
               <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
@@ -501,12 +519,12 @@ function StudentStats() {
               </ul>
             </div>
 
-            <div className="card-body pb-0">
+            {/* <div className="card-body pb-0">
               <h5 className="card-title">Website Traffic <span>| Today</span></h5>
 
-              {/* <div id="trafficChart" style="min-height: 400px;" className="echart"></div> */}
+               <div id="trafficChart" style="min-height: 400px;" className="echart"></div> 
 
-              {/* <script>
+               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   echarts.init(document.querySelector("#trafficChart")).setOption({
                     tooltip: {
@@ -559,9 +577,9 @@ function StudentStats() {
                     }]
                   });
                 });
-              </script> */}
+              </script> 
 
-            </div>
+            </div> */}
           </div>
           <div className="card">
             <div className="filter">
