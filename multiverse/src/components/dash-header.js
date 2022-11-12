@@ -5,7 +5,7 @@ import { UseAuth } from '../context/AuthContext';
 function DashHeader(){
   const [error,setError]=useState()
   const navigate = useNavigate()
-  const {currentUser,signout}=UseAuth()
+  const {signout,currentUser} = UseAuth()
   console.log(currentUser)
 async function handleSignOut()
 {

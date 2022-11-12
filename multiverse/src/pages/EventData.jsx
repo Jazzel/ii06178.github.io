@@ -15,8 +15,8 @@ function EventData(){
                <DashNav/>
                <main id="main" class="main">
                <section className="section">
-               <EventForm/>
-               <EventTable/>
+               {/* <EventForm/>
+               <EventTable/> */}
                </section>
                </main>
                <DashFooter/>

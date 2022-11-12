@@ -15,8 +15,8 @@ function ExternalData(){
                <DashNav/>
                <main id="main" class="main">
                <section className="section">
-               <ExternalForm/>
-               <ExternalTable/>
+               {/* <ExternalForm/>
+               <ExternalTable/> */}
                </section>
                </main>
                <DashFooter/>
