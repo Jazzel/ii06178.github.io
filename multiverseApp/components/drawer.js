@@ -19,26 +19,26 @@ import {
   Icon,
 } from "native-base";
 import ChatScreen from "../screens/ChatScreen";
-global.__reanimatedWorkletInit = () => {};
-const Drawer = createDrawerNavigator();
-const getIcon = (screenName) => {
-  switch (screenName) {
-    case "Inbox":
-      return "email";
-    case "Outbox":
-      return "send";
-    case "Favorites":
-      return "heart";
-    case "Archive":
-      return "archive";
-    case "Trash":
-      return "trash-can";
-    case "Spam":
-      return "alert-circle";
-    default:
-      return undefined;
-  }
-};
+// global.__reanimatedWorkletInit = () => {};
+// const Drawer = createDrawerNavigator();
+// const getIcon = (screenName) => {
+//   switch (screenName) {
+//     case "Inbox":
+//       return "email";
+//     case "Outbox":
+//       return "send";
+//     case "Favorites":
+//       return "heart";
+//     case "Archive":
+//       return "archive";
+//     case "Trash":
+//       return "trash-can";
+//     case "Spam":
+//       return "alert-circle";
+//     default:
+//       return undefined;
+//   }
+// };
 
 // function CustomDrawerContent(props) {
 //   return (
@@ -136,14 +136,14 @@ const getIcon = (screenName) => {
 //     </DrawerContentScrollView>
 //   );
 // }
-function drawer() {
-  return (
-    <Box safeArea flex={1}>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Chat" component={ChatScreen} />
-      </Drawer.Navigator>
-    </Box>
-  );
-}
+// function drawer() {
+//   return (
+//     // <Box safeArea flex={1}>
+//     <Drawer.Navigator>
+//       <Drawer.Screen name="Chat" component={ChatScreen} />
+//     </Drawer.Navigator>
+//     // </Box>
+//   );
+// }
 
-export default drawer;
+// export default drawer;

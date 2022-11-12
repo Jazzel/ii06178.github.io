@@ -6,11 +6,12 @@ import drawer from "../components/drawer";
 
 function Dashboard() {
   return (
-    <NavigationContainer>
-      {/* <NativeBaseProvider> */}
-      <drawer />
-      {/* </NativeBaseProvider> */}
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <NativeBaseProvider>
+    // <drawer />
+    //   </NativeBaseProvider>
+    // </NavigationContainer>
+    <Text>Dashboard</Text>
   );
 }
 
