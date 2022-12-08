@@ -7,6 +7,7 @@ import Login from "./screens/Login";
 import Dashboard from "./screens/Dashboard";
 import ChatScreen from "./screens/ChatScreen";
 import { NativeBaseProvider } from "native-base";
+import Events from "./screens/Events";
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -14,8 +15,9 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Events" component={Events} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="Chat" component={ChatScreen} />
+          {/* <Stack.Screen name="Chat" component={ChatScreen} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

@@ -1,6 +1,6 @@
 Mobile App Features:
 
--Log In/Sign In
+-Log In
 
 -Notification for upcoming events
 
