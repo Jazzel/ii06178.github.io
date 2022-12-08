@@ -7,18 +7,31 @@ import Login from "./screens/Login";
 import Dashboard from "./screens/Dashboard";
 import ChatScreen from "./screens/ChatScreen";
 import { NativeBaseProvider } from "native-base";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
 import Events from "./screens/Events";
-const Stack = createNativeStackNavigator();
+
+import "react-native-gesture-handler";
+
+const Drawer = createDrawerNavigator();
+
+// const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Events" component={Events} />
-          <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Drawer.Navigator initialRouteName="Login">
+          <Drawer.Screen
+            name="Login"
+            component={Login}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Drawer.Screen name="Events" component={Events} />
+          <Drawer.Screen name="Dashboard" component={Dashboard} />
           {/* <Stack.Screen name="Chat" component={ChatScreen} /> */}
-        </Stack.Navigator>
+        </Drawer.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
   );
